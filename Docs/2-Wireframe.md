@@ -1,4 +1,4 @@
-# Wireframe
+# 2 - Wireframe
 
 ## Pages
 
@@ -12,3 +12,5 @@ Pour commencer, le projet doit démarrer sur 3 pages :
 ![Wireframe](images/wireframe.png)
 
 A noter : Sur la page d'accueil, il n'y aura pas de bouton de connexion puisque la fonctionnalité de création de compte et de connexion pour un utilisateur n'est pas retenue dans la v1. La connexion de l'administrateur se fera via une url directe.
+
+[Précédent](1-Brainstorming.md) | [Accueil](0-Sommaire.md) | [Suivant](3-Use-cases.md)

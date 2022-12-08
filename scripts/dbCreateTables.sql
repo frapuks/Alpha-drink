@@ -1,10 +1,10 @@
 BEGIN;
 
-CREATE DATABASE alpha_drink;
+DROP TABLE IF EXISTS "category", "drink", "review", "role", "user";
 
 CREATE TABLE category (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  category_name TEXT NOT NULL,
+  category_name TEXT NOT NULL
 );
 
 CREATE TABLE drink (
@@ -13,6 +13,7 @@ CREATE TABLE drink (
   maker TEXT NULL,
   infos TEXT NULL,
   starscounter INT NOT NULL,
+  averageRate INT NULL,
   isalcool BOOLEAN,
   isavailable BOOLEAN,
   category_id INT NOT NULL
@@ -32,7 +33,7 @@ CREATE TABLE role (
   role_name TEXT NOT NULL
 );
 
-CREATE TABLE user (
+CREATE TABLE "user" (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   firstname TEXT NOT NULL,
   lastname TEXT NOT NULL,
@@ -43,7 +44,10 @@ CREATE TABLE user (
 
 ALTER TABLE drink ADD FOREIGN KEY (category_id) REFERENCES category (id);
 ALTER TABLE review ADD FOREIGN KEY (drink_id) REFERENCES drink (id);
-ALTER TABLE review ADD FOREIGN KEY (user_id) REFERENCES user (id);
-ALTER TABLE user ADD FOREIGN KEY (role_id) REFERENCES role (id);
+ALTER TABLE review ADD FOREIGN KEY (user_id) REFERENCES "user" (id);
+ALTER TABLE "user" ADD FOREIGN KEY (role_id) REFERENCES role (id);
+
+INSERT INTO role (role_name) VALUES ('admin'), ('member');
+INSERT INTO category (category_name) VALUES ('divers'), ('soft'), ('biere'), ('vin'), ('coktail'), ('spiritueux');
 
 COMMIT;

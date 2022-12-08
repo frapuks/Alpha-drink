@@ -1,4 +1,4 @@
-# MCD/MLD
+# 4 - MCD/MLD
 
 ## MCD
 
@@ -34,3 +34,12 @@ user (_id_, firstname, lastname, email, password, #role_id)
 ```
 
 [=> code MLD](../scripts/dbCreate.sql)
+
+## MPD
+
+Ajouté depuis la création MCD/MLD :
+- averageRate : Note moyenne des commentaires
+
+=> voir le fichier script : [dbCreateTables.sql](../scripts/dbCreateTables.sql)
+
+[Précédent](3-Use-cases.md) | [Accueil](0-Sommaire.md) | [Suivant](5-Mood-Board.md)

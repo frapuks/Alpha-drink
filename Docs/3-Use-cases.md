@@ -1,4 +1,4 @@
-# Use Cases
+# 3 - Use Cases
 
 ## Visiteur
 
@@ -9,6 +9,7 @@
 | visiteur | bouton dark mode                    | affiche la page en dark mode         |
 | visiteur | clique sur une boisson              | ouvre toutes les infos de la boisson |
 | visiteur | bouton 'Stars'                      | Indiquer qu'on a aimé                | 
+| visiteur | bouton 'Review'                     | Poster un commentaire et une note    | 
 
 ## Admin
 
@@ -18,4 +19,7 @@
 | admin    | bouton ajouter une boisson            | ajoute une boisson et ses caractéristiques |
 | admin    | bouton supprimer une boisson          | supprime une boisson                       |
 | admin    | bouton désactiver une boisson         | rend indisponible cette boisson aux users  |
-| admin    | bouton modifier une boisson           | modifie les caractéristiques d'une boisson |
+| admin    | bouton modifier une boisson           | ouvre une modale avec les infos            |
+| admin    | bouton valider les modifications      | enregistre les modif dans la BDD           |
+
+[Précédent](2-Wireframe.md) | [Accueil](0-Sommaire.md) | [Suivant](4-MCD-MLD-MPD.md)

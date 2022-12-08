@@ -22,4 +22,4 @@ Le but du projet est d'avoir une carte des boissons que je peux servir chez moi 
 - recherche de la boisson
 - compte utilisateur avec ses fonctionnalités
 
-[Précédent](0-Sommaire.md) | [Accueil](0-Sommaire.md) | [Suivant](1-Brainstorming.md)
+[Précédent](0-Sommaire.md) | [Accueil](0-Sommaire.md) | [Suivant](2-Wireframe.md)
