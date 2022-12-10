@@ -21,7 +21,7 @@ belongs, 11 drink, 0N category
 category : categoryId, name
 ```
 
-![MCD](3-MCD.png)
+![MCD](images/MCD.png)
 
 ## MLD
 
@@ -32,8 +32,6 @@ review (_id_, name, date, content, #drink_id, #user_id)
 role (_id_, name)
 user (_id_, firstname, lastname, email, password, #role_id)
 ```
-
-[=> code MLD](../scripts/dbCreate.sql)
 
 ## MPD
 

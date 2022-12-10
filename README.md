@@ -8,6 +8,7 @@ Application privée pour la gestion d'une carte de boissons.
 
 - Node
 - Express
+- Express-session
 - PostgreSQL
 - Ejs
 - CSS
@@ -25,3 +26,4 @@ Application privée pour la gestion d'une carte de boissons.
 # Ressources
 
 - [mocodo.net](https://www.mocodo.net/)
+- [figma.com](https://www.figma.com/)
