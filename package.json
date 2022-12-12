@@ -1,0 +1,32 @@
+{
+  "name": "alphadrink",
+  "version": "1.0.0",
+  "description": "Application privée pour la gestion d'une carte de boissons.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "dbCreate" : "psql -U frapuks -d alpha_drink -f scripts/create_tables.sql",
+    "dbSeed" : "psql -U frapuks -d alpha_drink -f scripts/seed_tables.sql",
+    "dbReset" : "npm run dbCreate && npm run dbSeed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frapuks/Alpha-drink.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frapuks/Alpha-drink/issues"
+  },
+  "homepage": "https://github.com/frapuks/Alpha-drink#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "pg": "^8.8.0"
+  }
+}

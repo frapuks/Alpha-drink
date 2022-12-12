@@ -16,7 +16,7 @@ role : roleId, name
 
 review: reviewId, name, date, content
 rate, 0N drink, 11 review
-drink : drinkId, name, maker, infos, starsCounter, isAlcool, isAvailable
+drink : drinkId, name, maker, infos, starsCounter, averageRate, isAlcool, isAvailable
 belongs, 11 drink, 0N category
 category : categoryId, name
 ```
@@ -27,7 +27,7 @@ category : categoryId, name
 
 ```
 category (_id_, name)
-drink (_id_, name, maker, infos, starsCounter, isAlcool, isAvailable, #category_id)
+drink (_id_, name, maker, infos, starsCounter, averageRate, isAlcool, isAvailable, #category_id)
 review (_id_, name, date, content, #drink_id, #user_id)
 role (_id_, name)
 user (_id_, firstname, lastname, email, password, #role_id)
@@ -35,8 +35,27 @@ user (_id_, firstname, lastname, email, password, #role_id)
 
 ## MPD
 
-Ajouté depuis la création MCD/MLD :
-- averageRate : Note moyenne des commentaires
+```
+%%mocodo
+:::
+user: userId, firstname, lastname, email, password, #roleId->role->roleId
+:
+role: roleId, name
+:
+
+
+:
+review: reviewId, name, date, content, #userId->user->userId, #drinkId->drink->drinkId
+:
+drink: drinkId, name, maker, infos, starsCounter, averageRate, isAlcool, isAvailable, #categoryId->category->categoryId
+:
+category: categoryId, name
+:
+```
+
+![MPD](images/MPD.png)
+
+## Script
 
 => voir le fichier script : [dbCreateTables.sql](../scripts/dbCreateTables.sql)
 

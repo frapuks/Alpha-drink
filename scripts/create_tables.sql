@@ -4,33 +4,35 @@ DROP TABLE IF EXISTS "category", "drink", "review", "role", "user";
 
 CREATE TABLE category (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  category_name TEXT NOT NULL
+  name TEXT NOT NULL
 );
 
 CREATE TABLE drink (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  drink_name TEXT NOT NULL,
+  name TEXT NOT NULL,
   maker TEXT NULL,
   infos TEXT NULL,
-  starscounter INT NOT NULL,
+  starscounter INT NULL DEFAULT 0,
   averageRate INT NULL,
+  stock INT NULL DEFAULT 1,
   isalcool BOOLEAN,
-  isavailable BOOLEAN,
-  category_id INT NOT NULL
+  isavailable BOOLEAN DEFAULT true,
+  category_id INT NOT NULL DEFAULT 1
 );
 
 CREATE TABLE review (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  review_name TEXT NOT NULL,
-  review_date DATE,
+  name TEXT NOT NULL,
+  date DATE,
   content TEXT NOT NULL,
+  rate INT NULL,
   user_id INT NULL,
   drink_id INT NOT NULL
 );
 
 CREATE TABLE role (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  role_name TEXT NOT NULL
+  name TEXT NOT NULL
 );
 
 CREATE TABLE "user" (
@@ -46,8 +48,5 @@ ALTER TABLE drink ADD FOREIGN KEY (category_id) REFERENCES category (id);
 ALTER TABLE review ADD FOREIGN KEY (drink_id) REFERENCES drink (id);
 ALTER TABLE review ADD FOREIGN KEY (user_id) REFERENCES "user" (id);
 ALTER TABLE "user" ADD FOREIGN KEY (role_id) REFERENCES role (id);
-
-INSERT INTO role (role_name) VALUES ('admin'), ('member');
-INSERT INTO category (category_name) VALUES ('divers'), ('soft'), ('biere'), ('vin'), ('coktail'), ('spiritueux');
 
 COMMIT;

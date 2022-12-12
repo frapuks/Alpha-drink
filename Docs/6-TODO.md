@@ -1,15 +1,6 @@
 # TODO
 
-## Version actuelle
-
-- Améliorer le visuel de la page 404
-- Commencer à coder
-
-## Version suivante
-
-- Création d'un logo
-- Design complet
-- Ajouter une fonctionnalité de recherche de boisson
-- Possibilité de créer un compte utilisateur
+L'intégralité du Projet est disponible sur l'onglet projet.
+Les tickets démarrent au démarrage de l'écriture du code.
 
 [Précédent](5-Mood-Board.md) | [Accueil](0-Sommaire.md) |
