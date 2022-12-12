@@ -1,6 +1,8 @@
 BEGIN;
 
-INSERT INTO role (name) VALUES ('admin'), ('member');
+INSERT INTO role (name) VALUES
+    ('admin'),  --1
+    ('member'); --2
 INSERT INTO category (name) VALUES
     ('divers'),     --1
     ('soft'),       --2
@@ -24,11 +26,18 @@ INSERT INTO drink (name, maker, infos, isalcool, category_id) VALUES
     ('Sirops', 'La maison Guiot', 'mûre/cassis, violette, menthe, fruits de la passion', false, 2),    --10
     -- Rhums
     ('Demon''s Share', 'Demon''s Share', 'Provenance Panama', true, 6),                                --11
-    ('Dictador', 'Dictador', 'Provenance Colombie', true, 6);                                          --12
+    ('Dictador', 'Dictador', 'Provenance Colombie', true, 6)                                           --12
+    -- Ajouter le reste des boissons
+    ;
 
 INSERT INTO review (name, date, content, rate, drink_id) VALUES
-    ('François', 2022-12-12, 'A vos risques et perils', 1, 1),
-    ('François', 2022-12-12, 'Un incontournable depuis qu''on a 15 ans', 3, 2),
-    ('François', 2022-12-12, 'Ceratinement une des meilleurs bières au monde', 5, 3),
+    ('Francois', '2022-12-12', 'A vos risques et perils', 1, 1),
+    ('Francois', '2022-12-12', 'Un incontournable depuis qu''on a 15 ans', 3, 2),
+    ('Francois', '2022-12-12', 'Certainement une des meilleurs bières au monde', 5, 3)
+    -- Ajouter des commentaires
+    ;
+
+INSERT INTO "user" (firstname, lastname, email, pwd, role_id) VALUES
+    ('Francois', 'GRUNERT', 'francoisgrunert@gmail.com', 'pwd a définir', 1);
 
 COMMIT;
