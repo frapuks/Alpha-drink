@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "dbCreate" : "psql -U frapuks -d alpha_drink -f scripts/create_tables.sql",
-    "dbSeed" : "psql -U frapuks -d alpha_drink -f scripts/seed_tables.sql",
-    "dbReset" : "npm run dbCreate && npm run dbSeed"
+    "dbCreate": "psql -U frapuks -d alpha_drink -f scripts/create_tables.sql",
+    "dbSeed": "psql -U frapuks -d alpha_drink -f scripts/seed_tables.sql",
+    "dbReset": "npm run dbCreate && npm run dbSeed"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/frapuks/Alpha-drink#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
