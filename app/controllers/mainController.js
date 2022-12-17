@@ -1,8 +1,14 @@
 const datamapper = require("../datamapper");
 
 const mainController = {
-    homePage(req,res){
-        res.render("home");
+    async homePage(req,res){
+        const categories = await datamapper.getAllCategoriesWithDrinks();
+        if(!categories){
+            return res.status(500).render('500');
+        }
+        return res.render("home", {
+            categories
+        });
     }
 };
 
