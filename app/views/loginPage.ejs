@@ -1,0 +1,19 @@
+<%- include('./partials/header'); %>
+
+<section class="main-section">
+    <h2 class="title">Login</h2>
+    <form method="post" action="/admin/loginCheck">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Votre email" required>
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+        <div>
+            <input class="btnSubmit" type="submit" value="Se connecter">
+        </div>
+    </form>
+    <% if (locals.message) { %>
+        <div><%= message %></div>
+    <% } %>
+</section>
+
+<%- include('./partials/footer'); %>

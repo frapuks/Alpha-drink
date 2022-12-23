@@ -1,9 +1,9 @@
 <%- include('./partials/header'); %>
 
 <% categories.forEach(category => { %>
-    <section class="category">
+    <section class="main-section">
 
-        <h2 class="category-title"><%= category.name %></h2>
+        <h2 class="title"><%= category.name %></h2>
 
         <% category.drinks.forEach(drink => { %>
             <article class="drink">
@@ -27,7 +27,6 @@
                                 ⭕
                             <% } %>
                         <% } %>
-                        <div class="drink-stock"><%= drink.stock %> bouteilles</div>
                     </div>
                 </div>
                 <div class="drink-description">

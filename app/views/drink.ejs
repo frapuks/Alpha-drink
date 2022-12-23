@@ -1,0 +1,79 @@
+<%- include('./partials/header'); %>
+
+<section class="main-section ">
+    <h2 class="title"><%= drink.name %></h2>
+    <div>Fabricant : <%= drink.maker %></div>
+    <div>Infos : <%= drink.infos %></div>
+    <div>
+        Note moyenne :
+        <% for( let i = 0; i < 5; i++ ) { %>
+            <% if (i < drink.averagerate) { %>
+                ⭐
+            <% } else { %>
+                ⭕
+            <% } %>
+        <% } %>
+    </div>
+    <div>Compteur : <button class="drink-starscounter">❤️ <%= drink.starscounter %></button></div>
+    <div>
+        Alcool :
+        <% if(drink.isalcool) { %>
+            <input type="checkbox" disabled checked>
+        <% } else { %>
+            <input type="checkbox" disabled>
+        <% } %>
+    </div>
+    <div>
+        Disponible : 
+        <% if(drink.isavailable) { %>
+            <input type="checkbox" disabled checked>
+        <% } else { %>
+            <input type="checkbox" disabled>
+        <% } %>
+    </div>
+    <div>Catégorie : <%= drink.category %></div>
+</section>
+
+<section class="main-section">
+    <h2 class="title">Commentaires</h2>
+    <div class="btnAdd">
+        <button class="btnPlus">+</button> Ajouter un commentaire
+    </div>
+    <% reviews.forEach(review => { %>
+        <article class="review">
+            <div>
+                Par <span class="review-author"><%= review.name %></span>, le <span class="review-date"><%= review.date.toLocaleDateString() %></span> 
+                <% for( let i = 0; i < 5; i++ ) { %>
+                    <% if (i < review.rate) { %>
+                        ⭐
+                    <% } else { %>
+                        ⭕
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="review-content">" <%= review.content %> "</div>
+        </article>
+    <% }) %>
+</section>
+
+<div class="modal hidden">
+    <form method="POST" action="/reviews/add" class="modal-form">
+        <label for="name">Votre nom</label>
+        <input type="text" name="name" id="name" placeholder="Votre nom" required>
+        <label for="contentReview">Votre commentaire</label>
+        <input type="text" name="contentReview" id="contentReview" placeholder="Votre commentaire" required>
+        <div>
+            <label for="rate">Votre note</label>
+            <input type="number" name="rate" id="rate" value="5" max="5" min="1" required>
+        </div>
+        <input type="text" class="hidden" name="drink_id" value="<%= drink.id %>" required>
+        <div>
+            <button type="submit" class="btnSubmit">Valider</button>
+            <button class="btnClose">Fermer</button>
+        </div>
+    </form>
+</div>
+
+
+
+<%- include('./partials/footer'); %>
