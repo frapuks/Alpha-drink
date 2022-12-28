@@ -1,7 +1,7 @@
 const dashboard = {
     // ELEMENTS
     allBtnUpdate : document.querySelectorAll('.btnSubmit'),
-    allBtnDelete : document.querySelectorAll('.btnClose'),
+    allBtnDelete : document.querySelectorAll('.btnDelete'),
     allCheckbox : document.querySelectorAll('.isAvailable'),
     btnAddDrink : document.querySelector('.btnAdd'),
     modal : document.querySelector('.modal'),

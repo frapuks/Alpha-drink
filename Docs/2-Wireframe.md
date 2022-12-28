@@ -2,12 +2,20 @@
 
 ## Pages
 
-Pour commencer, le projet doit démarrer sur 3 pages :
+Pour commencer, le projet devait démarrer sur 3 pages :
+
 - La page d'accueil qui doit présenter la liste des boissons
 - La page de connexion pour l'administrateur
 - Le dashboard de l'administrateur permettant le CRUD des boissons
 
+2 pages ont été ajoutées pour faciliter la gestions des modales et éviter de plus nombreux fichiers javascript en Front.
+
+- La page de chaque boisson
+- La page de chaque boisson vue par l'admin pour les modifications
+
 ## Visuel
+
+Le wireframe a été réalisé sur les pages de départ prévues initialement.
 
 ![Wireframe](images/wireframe.png)
 

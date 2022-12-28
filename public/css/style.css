@@ -196,3 +196,13 @@ input {
 	justify-content: space-between;
 	align-items: center;
 }
+
+.btnDelete {
+	padding: 1em;
+	background-color: red;
+	color: var(--white);
+	font-weight: bold;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}

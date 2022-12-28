@@ -14,9 +14,9 @@ user : userId, firstname, lastname, email, password
 has, 11 user, 0N role
 role : roleId, name
 
-review: reviewId, name, date, content
+review: reviewId, name, date, content, rate
 rate, 0N drink, 11 review
-drink : drinkId, name, maker, infos, starsCounter, averageRate, isAlcool, isAvailable
+drink : drinkId, name, maker, infos, starsCounter, averageRate, stock, isAlcool, isAvailable
 belongs, 11 drink, 0N category
 category : categoryId, name
 ```
@@ -27,10 +27,10 @@ category : categoryId, name
 
 ```
 category (_id_, name)
-drink (_id_, name, maker, infos, starsCounter, averageRate, isAlcool, isAvailable, #category_id)
-review (_id_, name, date, content, #drink_id, #user_id)
+drink (_id_, name, maker, infos, starsCounter, averageRate ,stock, isAlcool, isAvailable, #category_id)
+review (_id_, name, date, content, rate, #drink_id, #user_id)
 role (_id_, name)
-user (_id_, firstname, lastname, email, password, #role_id)
+user (_id_, firstname, lastname, email, pwd, #role_id)
 ```
 
 ## MPD
@@ -45,9 +45,9 @@ role: roleId, name
 
 
 :
-review: reviewId, name, date, content, #userId->user->userId, #drinkId->drink->drinkId
+review: reviewId, name, date, content, rate, #userId->user->userId, #drinkId->drink->drinkId
 :
-drink: drinkId, name, maker, infos, starsCounter, averageRate, isAlcool, isAvailable, #categoryId->category->categoryId
+drink: drinkId, name, maker, infos, starsCounter, averageRate, stock, isAlcool, isAvailable, #categoryId->category->categoryId
 :
 category: categoryId, name
 :

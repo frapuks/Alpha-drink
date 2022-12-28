@@ -5,8 +5,6 @@
 | Qui ?    | Quoi ?                              | Pourquoi ?                           |
 | -------- | ----------------------------------- | ------------------------------------ |
 | visiteur | afficher la page d'accueil          | voir toutes les boissons disponibles |
-| visiteur | bouton peu importe/avec/sans alcool | trier les boissons                   |
-| visiteur | bouton dark mode                    | affiche la page en dark mode         |
 | visiteur | clique sur une boisson              | ouvre toutes les infos de la boisson |
 | visiteur | bouton 'Stars'                      | Indiquer qu'on a aimé                | 
 | visiteur | bouton 'Review'                     | Poster un commentaire et une note    | 
