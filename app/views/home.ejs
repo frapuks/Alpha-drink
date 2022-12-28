@@ -21,15 +21,17 @@
                                     Sans Alcool
                                 </p>
                             <% } %>
-                            <div class="drink-mainRow-right">
-                                <% for( let i = 0; i < 5; i++ ) { %>
-                                    <% if (i < drink.averagerate) { %>
-                                        ⭐
-                                    <% } else { %>
-                                        ⭕
+                            <% if (drink.averagerate > 0) { %>
+                                <div class="drink-mainRow-right">
+                                    <% for( let i = 0; i < 5; i++ ) { %>
+                                        <% if (i < drink.averagerate) { %>
+                                            ⭐
+                                        <% } else { %>
+                                            ⭕
+                                        <% } %>
                                     <% } %>
-                                <% } %>
-                            </div>
+                                </div>
+                            <% } %>
                         </div>
                         <div class="drink-description">
                             <p class="drink-description-maker"><%= drink.maker %></p>

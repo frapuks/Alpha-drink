@@ -74,4 +74,15 @@ INSERT INTO review (name, date, content, rate, drink_id) VALUES
     -- Ajouter des commentaires
     ;
 
+-- INSERT INTO drink ("averagerate")
+--     SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 1;
+
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 1) WHERE drink.id = 1;
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 2) WHERE drink.id = 2;
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 3) WHERE drink.id = 3;
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 6) WHERE drink.id = 6;
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 8) WHERE drink.id = 8;
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 9) WHERE drink.id = 9;
+UPDATE drink SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = 10) WHERE drink.id = 10;
+
 COMMIT;

@@ -2,7 +2,6 @@ const datamapper = require("../datamapper");
 
 const mainController = {
     async homePage(req,res){
-        // faire le try catch ici, pas dans le datamapper
         try {
             const categories = await datamapper.getAllCategoriesWithDrinks();
             return res.render("home", {
@@ -32,8 +31,14 @@ const mainController = {
     },
 
     async addReview(req, res) {
-        await datamapper.createReview(req.body);
-        return res.redirect(`/drinks/${req.body.drink_id}`);
+        try {
+            await datamapper.createReview(req.body);
+            await datamapper.updateAverageRate(parseInt(req.body.drink_id));
+            return res.redirect(`/drinks/${req.body.drink_id}`);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).render('500');
+        }
     }
 };
 

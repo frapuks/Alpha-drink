@@ -124,7 +124,6 @@ const datamapper = {
     },
 
     async addDrink(body) {
-        console.log(body);
         const category_id = parseInt(body.category_id);
         let isalcool = false;
         if (body.isalcool) {
@@ -134,6 +133,15 @@ const datamapper = {
             INSERT INTO drink (name, maker, infos, isalcool, category_id)
             VALUES ($1, $2, $3, $4, $5)`;
         const values = [body.name, body.maker, body.infos, isalcool, category_id];
+        await client.query(sql, values);
+    },
+
+    async updateAverageRate(drinkId) {
+        const sql = `
+            UPDATE drink
+            SET averagerate = (SELECT ROUND(AVG(rate)) FROM review WHERE drink_id = $1)
+            WHERE drink.id = $2;`;
+        const values = [drinkId, drinkId];
         await client.query(sql, values);
     }
 };

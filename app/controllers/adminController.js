@@ -11,19 +11,24 @@ const adminController = {
     },
 
     async loginCheck(req, res) {
-        const user = await datamapper.findUser(req.body);
-        if (user) {
-            req.session.user = {
-                id : user.id,
-                name : `${user.firstname} ${user.lastname}`,
-                email : user.email,
-                role_id : user.role_id
-            };
-            return res.redirect('/admin/dashboard');
-        } else {
-            return res.render('loginPage', {
-                message : 'Aucun utilisateur trouvé'
-            })
+        try {
+            const user = await datamapper.findUser(req.body);
+            if (user) {
+                req.session.user = {
+                    id : user.id,
+                    name : `${user.firstname} ${user.lastname}`,
+                    email : user.email,
+                    role_id : user.role_id
+                };
+                return res.redirect('/admin/dashboard');
+            } else {
+                return res.render('loginPage', {
+                    message : 'Aucun utilisateur trouvé'
+                })
+            }
+        } catch (error) {
+            console.error(error);
+            return res.status(500).render('500');
         }
     },
 
@@ -76,6 +81,7 @@ const adminController = {
         try {
             const reviewId = parseInt(req.params.id);
             const result = await datamapper.deleteReview(reviewId);
+            await datamapper.updateAverageRate(result.drink_id);
             return res.redirect(`/admin/drinks/${result.drink_id}`);
         } catch (error) {
             console.error(error);
