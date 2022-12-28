@@ -4,10 +4,11 @@ const bcrypt = require('bcrypt');
 const datamapper = {
     async getAllCategoriesWithDrinks(){
         const sql = `
-            SELECT category.name AS name, JSON_agg(drink) AS drinks
+            SELECT category.name AS name, JSON_agg(drink ORDER BY drink.id) AS drinks
             FROM drink
             JOIN category ON category.id = drink.category_id
-            GROUP BY category.name`;
+            GROUP BY category.name
+            ORDER BY category.name`;
         const result = await client.query(sql);
         return result.rows;
     },
@@ -15,7 +16,8 @@ const datamapper = {
     async getAllCategories(){
         const sql = `
             SELECT *
-            FROM category`;
+            FROM category
+            ORDER BY category.id`;
         const result = await client.query(sql);
         return result.rows;
     },
