@@ -19,8 +19,8 @@ const mainController = {
             const drinkId = parseInt(req.params.id);
             const drink = await datamapper.getOneDrinkById(drinkId);
             const reviews = await datamapper.getReviewByDrinkId(drinkId);
-            const js = '/javascript/drink.js';
-            res.render('drink', {
+            const js = '/drink.js';
+            return res.render('drink', {
                 drink,
                 reviews,
                 js
@@ -33,7 +33,7 @@ const mainController = {
 
     async addReview(req, res) {
         await datamapper.createReview(req.body);
-        res.redirect(`/drinks/${req.body.drink_id}`);
+        return res.redirect(`/drinks/${req.body.drink_id}`);
     }
 };
 

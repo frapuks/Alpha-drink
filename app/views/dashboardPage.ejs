@@ -1,0 +1,56 @@
+<%- include('./partials/header'); %>
+
+<section class="main-section">
+    <div class="btnAdd">
+        <button class="btnPlus">+</button> Ajouter une boisson
+    </div>
+</section>
+
+<% categories.forEach(category => { %>
+    <section class="main-section">
+
+        <h2 class="title"><%= category.name %></h2>
+
+        <% category.drinks.forEach(drink => { %>
+            <article class="dashboard-row" data-id=<%= drink.id %>>
+                <span class="drink-mainRow-left"><%= drink.name %></span>
+                <div>
+                    <% if (drink.isavailable) { %>
+                        <input type="checkbox" class="isAvailable" checked>
+                    <% } else { %>
+                        <input type="checkbox" class="isAvailable">
+                    <% } %>
+                    <button class="btnSubmit">Modifier</button>
+                    <button class="btnClose">Supprimer</button>
+                </div>
+                </article>
+        <% }) %>
+
+    </section>
+
+<% }) %>
+
+<div class="modal hidden">
+    <form method="POST" action="/admin/drinks/add" class="modal-form">
+        <label for="name">Nom</label>
+        <input type="text" name="name" id="name" placeholder="Nom de la boisson" required>
+        <label for="maker">Fabricant</label>
+        <input type="text" name="maker" id="maker" placeholder="Nom du fabricant" required>
+        <label for="infos">Infos</label>
+        <input type="text" name="infos" id="infos" placeholder="Infos sur la boisson" required>
+        <label for="isalcool">Alcool</label>
+        <input type="checkbox" name="isalcool" id="isalcool">
+        <label for="category_id">Categorie</label>
+        <select name="category_id" id="category_id">
+            <% idCategories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
+        </select>
+        <div>
+            <button type="submit" class="btnSubmit">Valider</button>
+            <button class="btnClose">Fermer</button>
+        </div>
+    </form>
+</div>
+
+<%- include('./partials/footer'); %>

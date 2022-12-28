@@ -71,7 +71,7 @@ h1 {
 .drink-mainRow-left {
 	display: flex;
 	align-items: center;
-	max-width: 50%;
+	max-width: 40%;
 }
 
 .drink-mainRow-right {
@@ -186,4 +186,11 @@ input {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+}
+
+/* ---------------DASHBOARD--------------- */
+.dashboard-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

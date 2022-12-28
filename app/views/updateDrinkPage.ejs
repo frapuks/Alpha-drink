@@ -1,0 +1,58 @@
+<%- include('./partials/header'); %>
+
+<section class="main-section ">
+    <form method="POST" action="/admin/drinks/<%= drink.id %>/update">
+        <label for="name">Nom</label>
+        <input type="text" name="name" value="<%= drink.name %>">
+        <label for="maker">Fabricant</label>
+        <input type="text" name="maker" value="<%= drink.maker %>">
+        <label for="infos">Infos</label>
+        <input type="text" name="infos" value="<%= drink.infos %>">        
+        <div>
+            <label for="isalcool">Alcool :</label>
+            <% if(drink.isalcool) { %>
+                <input type="checkbox" name="isalcool" checked>
+            <% } else { %>
+                <input type="checkbox" name="isalcool">
+            <% } %>
+        </div>
+        
+        <label for="category_id">Categorie</label>
+        <select name="category_id" id="category_id">
+            <% idCategories.forEach(category => { %>
+                <% if (category.id === drink.category_id) { %>
+                    <option value="<%= category.id %>" selected><%= category.name %></option>
+                <% } else { %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                <% } %>
+            <% }) %>
+        </select>
+        <button class="btnSubmit">Valider</button>
+    </form>
+</section>
+
+<section class="main-section">
+    <h2 class="title">Commentaires</h2>
+    <% reviews.forEach(review => { %>
+        <article class="review">
+            <div>
+                Par <span class="review-author"><%= review.name %></span>, le <span class="review-date"><%= review.date.toLocaleDateString() %></span> 
+                <% for( let i = 0; i < 5; i++ ) { %>
+                    <% if (i < review.rate) { %>
+                        ⭐
+                    <% } else { %>
+                        ⭕
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="review-content">" <%= review.content %> "</div>
+            <a href="/admin/reviews/<%= review.id %>/delete">Supprimer le commentaire</a>
+        </article>
+    <% }) %>
+</section>
+
+
+
+
+
+<%- include('./partials/footer'); %>

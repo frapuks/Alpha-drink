@@ -1,42 +1,46 @@
 <%- include('./partials/header'); %>
 
 <% categories.forEach(category => { %>
-    <section class="main-section">
-
-        <h2 class="title"><%= category.name %></h2>
-
-        <% category.drinks.forEach(drink => { %>
-            <article class="drink">
-                <div class="drink-mainRow">
-                    <div class="drink-mainRow-left">
-                        <h3 class="drink-name">
-                            <a href="/drinks/<%= drink.id %> "><%= drink.name %></a>
-                        </h3>
-                        <button class="drink-starscounter">❤️ <%= drink.starscounter %></button>
-                    </div>
-                    <% if (!drink.isalcool) { %>
-                        <p class="drink-alcool">
-                            Sans Alcool
-                        </p>
-                    <% } %>
-                    <div class="drink-mainRow-right">
-                        <% for( let i = 0; i < 5; i++ ) { %>
-                            <% if (i < drink.averagerate) { %>
-                                ⭐
-                            <% } else { %>
-                                ⭕
+    <% if (category.drinks.find(drink => drink.isavailable === true)) { %>
+        <section class="main-section">
+    
+            <h2 class="title"><%= category.name %></h2>
+    
+            <% category.drinks.forEach(drink => { %>
+                <% if (drink.isavailable) { %>
+                    <article class="drink">
+                        <div class="drink-mainRow">
+                            <div class="drink-mainRow-left">
+                                <h3 class="drink-name">
+                                    <a href="/drinks/<%= drink.id %> "><%= drink.name %></a>
+                                </h3>
+                                <button class="drink-starscounter">❤️ <%= drink.starscounter %></button>
+                            </div>
+                            <% if (!drink.isalcool) { %>
+                                <p class="drink-alcool">
+                                    Sans Alcool
+                                </p>
                             <% } %>
-                        <% } %>
-                    </div>
-                </div>
-                <div class="drink-description">
-                    <p class="drink-description-maker"><%= drink.maker %></p>
-                    <p class="drink-description-infos"><%= drink.infos %></p>
-                </div>
-            </article>
-        <% }) %>
-
-    </section>
+                            <div class="drink-mainRow-right">
+                                <% for( let i = 0; i < 5; i++ ) { %>
+                                    <% if (i < drink.averagerate) { %>
+                                        ⭐
+                                    <% } else { %>
+                                        ⭕
+                                    <% } %>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="drink-description">
+                            <p class="drink-description-maker"><%= drink.maker %></p>
+                            <p class="drink-description-infos"><%= drink.infos %></p>
+                        </div>
+                    </article>             
+                <% } %>
+            <% }) %>
+    
+        </section>     
+    <% } %>
 <% }) %>
 
 <%- include('./partials/footer'); %>
