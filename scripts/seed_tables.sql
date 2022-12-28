@@ -8,7 +8,7 @@ INSERT INTO category (name) VALUES
     ('soft'),       --2
     ('biere'),      --3
     ('vin'),        --4
-    ('coktail'),    --5
+    ('cocktail'),   --5
     ('spiritueux'); --6
 
 INSERT INTO drink (name, maker, infos, isalcool, category_id) VALUES
