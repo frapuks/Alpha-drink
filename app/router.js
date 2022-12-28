@@ -6,6 +6,7 @@ const security = require('./middleware/security');
 
 router.get('/', mainController.homePage);
 router.get('/drinks/:id', mainController.drinkPage);
+router.get('/drinks/:id/addStar', mainController.addStar);
 router.post('/reviews/add', mainController.addReview);
 
 router.get('/admin/login', adminController.loginPage);

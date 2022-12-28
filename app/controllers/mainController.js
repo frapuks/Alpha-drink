@@ -39,6 +39,17 @@ const mainController = {
             console.error(error);
             return res.status(500).render('500');
         }
+    },
+
+    async addStar(req, res) {
+        try {
+            const drinkId = parseInt(req.params.id);
+            await datamapper.addStar(drinkId);
+            return res.redirect('/');
+        } catch (error) {
+            console.error(error);
+            return res.status(500).render('500');
+        }
     }
 };
 

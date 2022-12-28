@@ -14,7 +14,7 @@
                                 <h3 class="drink-name">
                                     <a href="/drinks/<%= drink.id %> "><%= drink.name %></a>
                                 </h3>
-                                <button class="drink-starscounter">❤️ <%= drink.starscounter %></button>
+                                <a href="/drinks/<%= drink.id %>/addStar" class="drink-starscounter">❤️ <%= drink.starscounter %></a>
                             </div>
                             <% if (!drink.isalcool) { %>
                                 <p class="drink-alcool">

@@ -14,7 +14,7 @@
             <% } %>
         <% } %>
     </div>
-    <div>Compteur : <button class="drink-starscounter">❤️ <%= drink.starscounter %></button></div>
+    <div>Compteur : <a href="/drinks/<%= drink.id %>/addStar" class="drink-starscounter">❤️ <%= drink.starscounter %></a></div>
     <div>
         Alcool :
         <% if(drink.isalcool) { %>

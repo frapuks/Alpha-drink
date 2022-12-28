@@ -143,6 +143,15 @@ const datamapper = {
             WHERE drink.id = $2;`;
         const values = [drinkId, drinkId];
         await client.query(sql, values);
+    },
+
+    async addStar(drinkId) {
+        const sql = `
+            UPDATE drink
+            SET starscounter = starscounter + 1
+            WHERE drink.id = $1;`;
+        const values = [drinkId];
+        await client.query(sql, values);
     }
 };
 
