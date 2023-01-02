@@ -71,7 +71,7 @@ h1 {
 .drink-mainRow-left {
 	display: flex;
 	align-items: center;
-	max-width: 40%;
+	/* max-width: 40%; */
 }
 
 .drink-mainRow-right {
@@ -102,6 +102,19 @@ h1 {
 
 .drink-description-maker {
 	font-style: italic;
+}
+
+.drink-container-infos {
+	font-size: 1.3em;
+	line-height: 1.2em;
+}
+
+.drink-label {
+	color: var(--color3);
+}
+
+.drink-data {
+	color: var(--color2);
 }
 
 /* ---------------REVIEW--------------- */
@@ -195,6 +208,10 @@ input {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.dashboard-row-left {
+	max-width: 45%;
 }
 
 .btnDelete {

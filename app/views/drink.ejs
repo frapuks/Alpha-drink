@@ -2,36 +2,50 @@
 
 <section class="main-section ">
     <h2 class="title"><%= drink.name %></h2>
-    <div>Fabricant : <%= drink.maker %></div>
-    <div>Infos : <%= drink.infos %></div>
-    <div>
-        Note moyenne :
-        <% for( let i = 0; i < 5; i++ ) { %>
-            <% if (i < drink.averagerate) { %>
-                ⭐
-            <% } else { %>
-                ⭕
+    <div class="drink-container-infos">
+        <div>
+            <span class="drink-label">Fabricant :</span>
+            <span class="drink-data"><%= drink.maker %></span>
+        </div>
+        <div>
+            <span class="drink-label">Infos :</span>
+            <span class="drink-data"><%= drink.infos %></span>
+        </div>
+        <div>
+            <span class="drink-label">Note moyenne :</span>
+            <% for( let i = 0; i < 5; i++ ) { %>
+                <% if (i < drink.averagerate) { %>
+                    ⭐
+                <% } else { %>
+                    ⭕
+                <% } %>
             <% } %>
-        <% } %>
+        </div>
+        <div>
+            <span class="drink-label">Compteur :</span>
+            <a href="/drinks/<%= drink.id %>/addStar" class="drink-starscounter">❤️ <%= drink.starscounter %></a>
+        </div>
+        <div>
+            <span class="drink-label">Alcool :</span>
+            <% if(drink.isalcool) { %>
+                <input type="checkbox" disabled checked>
+            <% } else { %>
+                <input type="checkbox" disabled>
+            <% } %>
+        </div>
+        <div>
+            <span class="drink-label">Disponible :</span>
+            <% if(drink.isavailable) { %>
+                <input type="checkbox" disabled checked>
+            <% } else { %>
+                <input type="checkbox" disabled>
+            <% } %>
+        </div>
+        <div>
+            <span class="drink-label">Catégorie :</span>
+            <span class="drink-data"><%= drink.category %></span>
+        </div>
     </div>
-    <div>Compteur : <a href="/drinks/<%= drink.id %>/addStar" class="drink-starscounter">❤️ <%= drink.starscounter %></a></div>
-    <div>
-        Alcool :
-        <% if(drink.isalcool) { %>
-            <input type="checkbox" disabled checked>
-        <% } else { %>
-            <input type="checkbox" disabled>
-        <% } %>
-    </div>
-    <div>
-        Disponible : 
-        <% if(drink.isavailable) { %>
-            <input type="checkbox" disabled checked>
-        <% } else { %>
-            <input type="checkbox" disabled>
-        <% } %>
-    </div>
-    <div>Catégorie : <%= drink.category %></div>
 </section>
 
 <section class="main-section">

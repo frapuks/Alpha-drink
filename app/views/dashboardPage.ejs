@@ -13,7 +13,7 @@
 
         <% category.drinks.forEach(drink => { %>
             <article class="dashboard-row" data-id=<%= drink.id %>>
-                <span class="drink-mainRow-left"><%= drink.name %></span>
+                <div class="dashboard-row-left"><%= drink.name %></div>
                 <div>
                     <% if (drink.isavailable) { %>
                         <input type="checkbox" class="isAvailable" checked>
